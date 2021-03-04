@@ -5,8 +5,8 @@ export const ImageBox = styled.div`
   position: relative;
   justify-content: center;
   align-items: center;
-  width: 440px;
-  height: 830px;
+  width: 100%;
+  min-height: 100vh;
   img {
     position: absolute;
     width: 540px;
@@ -29,11 +29,9 @@ export const Container = styled.div`
   background-color: #48d9b8;
   user-select: none;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
-  border-radius: 33px;
   @media screen and (max-width: 768px) {
     height: 100%;
     width: 100%;
-    border-radius: 0;
   }
 `;
 export const Header = styled.div`

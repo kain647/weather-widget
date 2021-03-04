@@ -1,18 +1,20 @@
 import styled from "styled-components";
-import mobile from "../upload/mobile.png";
 
 export const ImageBox = styled.div`
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   width: 440px;
   height: 830px;
-  background-image: url(${mobile});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  @media screen and (max-width: 768px) {
-    background-image: none;
+  img {
+    position: absolute;
+    width: 540px;
+    pointer-events: none;
+    z-index: 15;
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
   }
 `;
 export const Container = styled.div`
@@ -28,9 +30,8 @@ export const Container = styled.div`
   user-select: none;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
   border-radius: 33px;
-  z-index: -15;
   @media screen and (max-width: 768px) {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     border-radius: 0;
   }
@@ -150,7 +151,6 @@ export const NameDay = styled.div`
   height: 30px;
   background-color: ${({ active }) => (active ? "#48d9b8" : "#27b494")};
   padding: 4px;
-  //cursor: pointer;
   :last-child {
     margin-right: 0;
   }
@@ -161,6 +161,9 @@ export const Updated = styled.div`
   font-size: 12px;
   padding: 10px;
   margin-bottom: 5px;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 20px;
+  }
 `;
 export const Country = styled.div`
   display: flex;

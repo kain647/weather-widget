@@ -1,19 +1,43 @@
 import styled from "styled-components";
+import mobile from "../upload/mobile.png";
 
-export const Container = styled.div`
+export const ImageBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  width: 100%;
+  width: 440px;
+  height: 830px;
+  background-image: url(${mobile});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @media screen and (max-width: 768px) {
+    background-image: none;
+  }
+`;
+export const Container = styled.div`
+  display: flex;
+  position: relative;
+  width: 330px;
+  height: 720px;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   box-sizing: border-box;
-  overflow: hidden;
   background-color: #48d9b8;
   user-select: none;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+  border-radius: 33px;
+  z-index: -15;
+  @media screen and (max-width: 768px) {
+    height: 100vh;
+    width: 100%;
+    border-radius: 0;
+  }
 `;
 export const Header = styled.div`
   display: flex;
+  box-sizing: border-box;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -110,7 +134,7 @@ export const FirstT = styled.div`
 export const DayContainer = styled.div`
   display: grid;
   grid-gap: 5px;
-  grid-template-columns: repeat(7,1fr);
+  grid-template-columns: repeat(7, 1fr);
   box-sizing: border-box;
   padding: 10px;
   justify-content: space-between;
@@ -124,23 +148,9 @@ export const NameDay = styled.div`
   justify-content: center;
   margin-right: 5px;
   height: 30px;
-  background-color: ${({active})=> active ? "#48d9b8" : "#27b494"} ;
+  background-color: ${({ active }) => (active ? "#48d9b8" : "#27b494")};
   padding: 4px;
   //cursor: pointer;
-  :last-child {
-    margin-right: 0;
-  }
-`;
-export const Day = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 5px;
-  height: 30px;
-  width: 30px;
-  background-color: #27b494;
-  padding: 4px;
-  cursor: pointer;
   :last-child {
     margin-right: 0;
   }
@@ -158,11 +168,12 @@ export const Country = styled.div`
 `;
 export const FormContainer = styled.form`
   display: flex;
+  box-sizing: border-box;
   flex-direction: row;
   margin-bottom: 10px;
   width: 100%;
   justify-content: center;
-  padding: 0 20px;
+  padding: 10px 10px;
 `;
 export const Button = styled.button`
   display: flex;
@@ -179,7 +190,6 @@ export const Button = styled.button`
   padding: 6px 12px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #5b8a3c;
-
   :hover {
     background: linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
     background-color: #72b352;

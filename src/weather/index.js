@@ -1,6 +1,5 @@
 import React from "react";
 import { RiMapPinLine } from "react-icons/ri";
-
 import {
   Container,
   Header,
@@ -22,7 +21,8 @@ import {
   Input,
   Sun,
   Sunrise,
-  Sunset
+  Sunset,
+  ImageBox
 } from "./styles";
 
 const API_KEY = "73ba5a2394ecd39a0a0848cbfa379832";
@@ -58,7 +58,7 @@ class Weather extends React.Component {
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
     );
     const data = await api_url.json();
-    //console.log(data);
+    console.log(data);
 
     this.setState({
       temp: data.main.temp,
@@ -139,6 +139,7 @@ class Weather extends React.Component {
     ];
 
     return (
+      <ImageBox>
       <Container>
         <Header>
           <City>
@@ -163,15 +164,7 @@ class Weather extends React.Component {
         <DayContainer>
           {days.map(day => {
             return (
-              <NameDay
-                key={day.day}
-                // onClick={() => {
-                //   this.setState({
-                //     selected: day.day
-                //   });
-                // }}
-                active={day.day === this.state.selected}
-              >
+              <NameDay key={day.day} active={day.day === this.state.selected}>
                 {day.day}
               </NameDay>
             );
@@ -190,6 +183,7 @@ class Weather extends React.Component {
           <Button>Update weather</Button>
         </FormContainer>
       </Container>
+      </ImageBox>
     );
   }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import mobile from "../upload/mobile.png"
 import { RiMapPinLine } from "react-icons/ri";
 import {
   Container,
@@ -140,6 +141,7 @@ class Weather extends React.Component {
 
     return (
       <ImageBox>
+        <img src={mobile} />
       <Container>
         <Header>
           <City>
